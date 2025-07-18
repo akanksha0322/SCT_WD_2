@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="current-time">
+                <div id="current-date">Loading date...</div>
+                <div id="current-time">Loading time...</div>
+            </div>
+            <div class="theme-selector">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                    <option value="default">Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                    <option value="neon">Neon</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="mode-toggle">
+            <button id="stopwatch-mode" class="active">Stopwatch</button>
+            <button id="countdown-mode">Countdown</button>
+        </div>
+
+        <div id="stopwatch-container" class="active">
+            <div class="display">
+                <span id="hours">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>.
+                <span id="milliseconds">000</span>
+            </div>
+
+            <div class="controls">
+                <button id="start-btn" class="control-btn"><i class="fas fa-play"></i> Start</button>
+                <button id="stop-btn" class="control-btn"><i class="fas fa-pause"></i> Stop</button>
+                <button id="reset-btn" class="control-btn"><i class="fas fa-redo"></i> Reset</button>
+                <button id="lap-btn" class="control-btn"><i class="fas fa-flag"></i> Lap</button>
+            </div>
+
+            <div class="voice-control">
+                <button id="voice-btn" class="control-btn"><i class="fas fa-microphone"></i> Voice Control</button>
+                <div id="voice-status">Voice control inactive</div>
+            </div>
+
+            <div class="lap-times">
+                <h3>Lap Times</h3>
+                <div class="lap-controls">
+                    <button id="save-laps-btn" class="control-btn"><i class="fas fa-save"></i> Save Laps</button>
+                    <button id="clear-laps-btn" class="control-btn"><i class="fas fa-trash"></i> Clear Laps</button>
+                </div>
+                <ul id="laps-list"></ul>
+            </div>
+        </div>
+
+        <div id="countdown-container">
+            <div class="countdown-setup">
+                <div class="time-input">
+                    <label for="hours-input">Hours:</label>
+                    <input type="number" id="hours-input" min="0" max="99" value="0">
+                </div>
+                <div class="time-input">
+                    <label for="minutes-input">Minutes:</label>
+                    <input type="number" id="minutes-input" min="0" max="59" value="0">
+                </div>
+                <div class="time-input">
+                    <label for="seconds-input">Seconds:</label>
+                    <input type="number" id="seconds-input" min="0" max="59" value="0">
+                </div>
+                <button id="set-countdown-btn" class="control-btn"><i class="fas fa-check"></i> Set Timer</button>
+            </div>
+
+            <div class="display">
+                <span id="countdown-hours">00</span>:
+                <span id="countdown-minutes">00</span>:
+                <span id="countdown-seconds">00</span>
+            </div>
+
+            <div class="controls">
+                <button id="start-countdown-btn" class="control-btn"><i class="fas fa-play"></i> Start</button>
+                <button id="stop-countdown-btn" class="control-btn"><i class="fas fa-pause"></i> Stop</button>
+                <button id="reset-countdown-btn" class="control-btn"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Keyboard Shortcuts: Space (Start/Stop), R (Reset), L (Lap)</p>
+            <p>© 2025 Interactive Stopwatch App</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

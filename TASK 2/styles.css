@@ -1,0 +1,312 @@
+/* Base Styles */
+:root {
+    /* Default Theme */
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --display-background: #fff;
+    --button-text: #fff;
+    --border-color: #ddd;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --lap-item-bg: #fff;
+}
+
+/* Dark Theme */
+.dark-theme {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --background-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --display-background: #34495e;
+    --button-text: #fff;
+    --border-color: #7f8c8d;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --lap-item-bg: #34495e;
+}
+
+/* Light Theme */
+.light-theme {
+    --primary-color: #9b59b6;
+    --secondary-color: #8e44ad;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --display-background: #fff;
+    --button-text: #fff;
+    --border-color: #bdc3c7;
+    --success-color: #27ae60;
+    --danger-color: #c0392b;
+    --lap-item-bg: #fff;
+}
+
+/* Neon Theme */
+.neon-theme {
+    --primary-color: #ff00ff;
+    --secondary-color: #00ffff;
+    --background-color: #121212;
+    --text-color: #00ff00;
+    --display-background: #1a1a1a;
+    --button-text: #fff;
+    --border-color: #00ff00;
+    --success-color: #00ff00;
+    --danger-color: #ff0000;
+    --lap-item-bg: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.current-time {
+    font-size: 1.2rem;
+}
+
+.theme-selector select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--display-background);
+    color: var(--text-color);
+}
+
+/* Mode Toggle */
+.mode-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.mode-toggle button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--display-background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.mode-toggle button.active {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+}
+
+/* Display Styles */
+.display {
+    font-size: 3rem;
+    text-align: center;
+    background-color: var(--display-background);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#milliseconds {
+    font-size: 2rem;
+}
+
+/* Controls Styles */
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--button-text);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.control-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+#start-btn, #start-countdown-btn {
+    background-color: var(--success-color);
+}
+
+#stop-btn, #stop-countdown-btn {
+    background-color: var(--danger-color);
+}
+
+/* Voice Control */
+.voice-control {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#voice-status {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Lap Times */
+.lap-times {
+    margin-top: 30px;
+}
+
+.lap-times h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.lap-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#laps-list {
+    list-style-type: none;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--display-background);
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--lap-item-bg);
+}
+
+.lap-item:last-child {
+    border-bottom: none;
+}
+
+/* Countdown Styles */
+#countdown-container {
+    display: none;
+}
+
+#countdown-container.active {
+    display: block;
+}
+
+#stopwatch-container {
+    display: none;
+}
+
+#stopwatch-container.active {
+    display: block;
+}
+
+.countdown-setup {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.time-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-input input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--display-background);
+    color: var(--text-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .display {
+        font-size: 2.5rem;
+    }
+
+    #milliseconds {
+        font-size: 1.5rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .control-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .countdown-setup {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
